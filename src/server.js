@@ -1,21 +1,42 @@
+// Initialize
 const express = require('express')
 const app = express()
 const path = require("path")
 const port = 3000
-const exphbs = require('express-handlebars');
 
+// Middleware
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+
+// Set db
+const db = require('../data/reddit-db');
+const posts = require('./controllers/posts.js')(app);
+
+// Must come after defining the app and before routes
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
+
+// Engine
 app.engine('handlebars', exphbs({
     layoutsDir: __dirname + "/views/layout",
     defaultLayout: 'main'
 }))
-
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'handlebars')
 
-app.get('/', function(req, res) {
-    res.render("index")
+// Routes
+app.get('/', (req, res) => {
+    return res.render('index');
+    })
+
+app.get('/posts/new', (req, res) => {
+    res.render('posts-new');
 })
 
+// Run on port
+require('./controllers/posts.js')(app);
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
