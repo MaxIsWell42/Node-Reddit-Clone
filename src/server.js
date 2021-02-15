@@ -37,6 +37,7 @@ app.get('/posts/new', (req, res) => {
 
 // Run on port
 require('./controllers/posts.js')(app);
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
