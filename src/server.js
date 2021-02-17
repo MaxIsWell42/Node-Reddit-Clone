@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 
 // Set db
-const db = require('../data/reddit-db');
+const db = require('./data/reddit-db');
 const posts = require('./controllers/posts.js')(app);
 
 // Must come after defining the app and before routes
@@ -25,15 +25,6 @@ app.engine('handlebars', exphbs({
 }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'handlebars')
-
-// Routes
-app.get('/', (req, res) => {
-    return res.render('index');
-    })
-
-app.get('/posts/new', (req, res) => {
-    res.render('posts-new');
-})
 
 // Run on port
 require('./controllers/posts.js')(app);
