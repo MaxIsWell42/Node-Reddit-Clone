@@ -28,6 +28,7 @@ app.set('view engine', 'handlebars')
 
 // Run on port
 require('./controllers/posts.js')(app);
+require('./controllers/comments.js')(app);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
