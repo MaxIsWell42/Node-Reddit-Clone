@@ -10,12 +10,16 @@
   "author": "Max Finn",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "chai": "^4.3.0",
     "chai-http": "^4.3.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
     "mocha": "^8.3.0",
     "mongoose": "^5.11.15"
   }

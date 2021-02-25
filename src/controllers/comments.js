@@ -1,5 +1,5 @@
-const Comment = require('../models/comment');
-const Post = require('../models/post');
+const Comment = require('../models/comments');
+const Post = require('../models/posts');
 
 module.exports = function(app) {
     // CREATE Comment
